@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  - let tennises=[{Player_Name:"Roger Federer",Player_Age :30,No_Of_Matches_Played:4},{Player_Name:"Rafael Nadal",Player_Age :35,No_Of_Matches_Played:5},{Player_Name:"Andy Murray",Player_Age :25,No_Of_Matches_Played:6}]
+    
+    div(class="container-fluid mt-3")
+    div(class="row")
+        each tennis,index in tennises
+            div(class="col-sm-2 bg-primary m-1 p-3" onclick=`buy(${index})`) #{tennis.Player_Name} - #{tennis.Player_Age} - #{tennis.No_Of_Matches_Played}
+
+    
+    script.
+     
+      function buy(itemNo)
+      {
+        alert(`You purchased Item ${itemNo+1}`)
+      }

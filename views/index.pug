@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  p Minitha Sai Penumachha
+
+  button(type="button",onclick="doBump()" class="btn btn-primary") Press Me
+
+  div(id="bump") Bump the count
+  script.
+    var count=0;
+    var bump=1;
+    function doBump() {
+      count = count+bump;
+      bump++;
+      document.getElementById("bump").innerHTML=`Count ${count} with bump ${bump}`
+    }
+  a(href="/tennis") tennis
+    
