@@ -74,8 +74,8 @@ exports.tennis_update_put = async function (req, res) {
 // Handle a show all view
 exports.tennis_view_all_Page = async function (req, res) {
     try {
-        theTennises = await tennis.find();
-        res.render('tennis', { title: 'tennis Search Results', results: theTennises });
+        theTennis = await tennis.find();
+        res.render('tennis', { title: 'tennis Search Results', results: theTennis });
     }
     catch (err) {
         res.status(500);
@@ -143,7 +143,7 @@ exports.tennis_delete_Page = async function(req, res) {
 exports.tennis_view_all_Page = async function(req, res) { 
     try{ 
         theTennises = await tennis.find(); 
-        res.render('tennises', { title: 'tennis Search Results', result: theTennises }); 
+        res.render('tennis', { title: 'tennis Search Results', result: theTennises }); 
     } 
     catch(err){ 
         res.status(500); 

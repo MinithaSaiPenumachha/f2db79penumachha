@@ -1,27 +1,14 @@
-extends layout
+extends layout 
 
+block content 
+    h1= title
+    div.container-fluid
+        div.row
+            each item, index in result
+                div.col-sm-2(onclick=`buy(${index})`) #{item["Player_Name"]}, #{item["Player_Age"]}, #{item["No_Of_Matches_Played"]}
+        
 
-
-block content
-
-  h1= title
-
-  - let tennises = results
-
-    div(class="container-fluid")
-
-    div(class="row m-1")
-
-      each tennis,index in tennises
-
-       - let destination = `dispatch(\"/tennises/update?id=${tennis.Player_Name}\")`
-
-        div(onclick=`buy(${index})`) #{tennis["Employee_Name"]} - #{tennis.Player_Age} - #{tennis.No_Of_Matches_Played}
-
-    script.
-
-      function dispatch(path){
-
-        window.location.href=path
-
-      }
+    script. 
+        function buy(index) {
+            alert("You purchased item " + index);
+        }
