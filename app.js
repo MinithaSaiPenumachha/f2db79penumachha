@@ -65,6 +65,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 async function recreateDB(){
   // Delete everything
     await tennis.deleteMany();
@@ -100,4 +101,4 @@ async function recreateDB(){
   let reseed = true;
   if (reseed) { recreateDB();}
   
-  module.exports = app;
+module.exports = app;
