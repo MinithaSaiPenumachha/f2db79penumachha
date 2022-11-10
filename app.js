@@ -48,7 +48,6 @@ app.use('/users', usersRouter);
 app.use('/tennis', tennisRouter);
 app.use('/gridbuild', gridbuildRouter);
 app.use('/selector', selectorRouter);
-
 app.use('/resource', resourceRouter);
 
 // catch 404 and forward to error handler
@@ -68,7 +67,7 @@ app.use(function(err, req, res, next) {
 });
 async function recreateDB(){
   // Delete everything
-  await tennis.deleteMany();
+    await tennis.deleteMany();
 
     let instance1 = new
     tennis({
@@ -100,5 +99,5 @@ async function recreateDB(){
   }
   let reseed = true;
   if (reseed) { recreateDB();}
-
-module.exports = app;
+  
+  module.exports = app;
