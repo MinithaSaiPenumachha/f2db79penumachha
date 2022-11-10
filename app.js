@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 var mongodb = require('mongodb')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var tennis = require("./models/tennis");
+   
 
 require('dotenv').config();
 const connectionString =
@@ -43,12 +43,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/tennis', tennisRouter);
 app.use('/gridbuild', gridbuildRouter);
 app.use('/selector', selectorRouter);
+
 app.use('/resource', resourceRouter);
 
 // catch 404 and forward to error handler
