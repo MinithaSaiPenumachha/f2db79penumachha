@@ -29,6 +29,7 @@ var usersRouter = require('./routes/users');
 var tennisRouter = require('./routes/tennis');
 var gridbuildRouter = require('./routes/gridbuild');
 var selectorRouter = require('./routes/selector');
+var resourceRouter = require('./routes/resource');
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname,'public')));
 
 
 app.use('/', indexRouter);
@@ -47,6 +49,7 @@ app.use('/users', usersRouter);
 app.use('/tennis', tennisRouter);
 app.use('/gridbuild', gridbuildRouter);
 app.use('/selector', selectorRouter);
+app.use('/resource', resourceRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -65,7 +68,8 @@ app.use(function(err, req, res, next) {
 });
 async function recreateDB(){
   // Delete everything
-    await tennis.deleteMany();  
+  await tennis.deleteMany();
+
     let instance1 = new
     tennis({
       Player_Name:"Roger Federer",Player_Age :30,No_Of_Matches_Played:4
