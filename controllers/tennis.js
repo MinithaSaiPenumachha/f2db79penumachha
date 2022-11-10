@@ -74,7 +74,7 @@ exports.tennis_update_put = async function (req, res) {
 // Handle a show all view
 exports.tennis_view_all_Page = async function (req, res) {
     try {
-        thezoos = await tennis.find();
+        theTennises = await tennis.find();
         res.render('tennis', { title: 'tennis Search Results', results: theTennises });
     }
     catch (err) {
@@ -97,7 +97,7 @@ exports.tennis_view_one_Page = async function (req, res) {
     }
 };
 
-// Handle building the view for creating a zoo.
+// Handle building the view for creating a tennis.
 // No body, no in path parameter, no query.
 // Does not need to be async
 exports.tennis_create_Page =  function(req, res) {
@@ -111,7 +111,7 @@ exports.tennis_create_Page =  function(req, res) {
     }
 };
 
-// Handle building the view for updating a zoo.
+// Handle building the view for updating a tennis.
 // query provides the id
 exports.tennis_update_Page =  async function(req, res) {
     console.log("update view for item "+req.query.id)
@@ -129,7 +129,7 @@ exports.tennis_update_Page =  async function(req, res) {
 exports.tennis_delete_Page = async function(req, res) {
     console.log("Delete view for id "  + req.query.id)
     try{
-        result = await zoo.findById(req.query.id)
+        result = await tennis.findById(req.query.id)
         res.render('tennisdelete', { title: 'Tennis Delete', toShow: result });
     }
     catch(err){
@@ -140,10 +140,10 @@ exports.tennis_delete_Page = async function(req, res) {
 
 // VIEWS 
 // Handle a show all view 
-exports.costume_view_all_Page = async function(req, res) { 
+exports.tennis_view_all_Page = async function(req, res) { 
     try{ 
-        theCostumes = await Costume.find(); 
-        res.render('costumes', { title: 'Costume Search Results', results: theCostumes }); 
+        theTennises = await tennis.find(); 
+        res.render('tennises', { title: 'tennis Search Results', result: theTennises }); 
     } 
     catch(err){ 
         res.status(500); 
