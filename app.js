@@ -30,6 +30,7 @@ var tennisRouter = require('./routes/tennis');
 var gridbuildRouter = require('./routes/gridbuild');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
+const tennis = require('./models/tennis');
 
 var app = express();
 
@@ -67,8 +68,7 @@ app.use(function(err, req, res, next) {
 });
 
 async function recreateDB(){
-  // Delete everything
-    await tennis.deleteMany();
+  await tennis.deleteMany();
 
     let instance1 = new
     tennis({
