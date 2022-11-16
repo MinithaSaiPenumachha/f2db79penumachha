@@ -1,20 +1,23 @@
 extends layout
 block content
     h1= title
-    - let tennisid = toShow._id
-    - let PlayerName = toShow.Player_Name
-    - let PlayerAge = toShow.Player_Age
-    - let NoOfMatchesPlayed = toShow.No_Of_Matches_Played
-    div
-    div.row
-    div(class='tennisAttr mr-3') tennis ID is:
-    div #{tennisid}
-    div.row
-    div(class='tennisAttr mr-3') tennis Player Name is:
-    div #{PlayerName}
-    div.row
-    div(class='tennisAttr mr-3') tennis Player Age is:
-    div #{PlayerAge}
-    div.row
-    div(class='tennisAttr mr-3') No of matches Played is:
-    div #{NoOfMatchesPlayed}
+     if (toShow == null)
+        h2 No instance to get details
+     else
+        - let tennisid = toShow._id
+        - let PlayerName = toShow.Player_Name
+        - let PlayerAge = toShow.Player_Age
+        - let NoOfMatchesPlayed = toShow.No_Of_Matches_Played
+        div
+        div.row
+        div(class='tennisAttr mr-3') tennis ID is:
+        div #{tennisid}
+        div.row
+        div(class='tennisAttr mr-3') tennis Player Name is:
+        div #{PlayerName}
+        div.row
+        div(class='tennisAttr mr-3') tennis Player Age is:
+        div #{PlayerAge}
+        div.row
+        div(class='tennisAttr mr-3') No of matches Played is:
+        div #{NoOfMatchesPlayed}
