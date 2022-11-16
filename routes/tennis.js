@@ -8,4 +8,5 @@ var router = express.Router();
 //     res.render('tennis',{title:'Search Results'});
 // });
 router.get('/', tennis_controlers.tennis_view_all_Page ); 
+router.get('/detail', tennis_controlers.tennis_view_one_Page);
 module.exports = router;
