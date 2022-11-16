@@ -1,0 +1,20 @@
+extends layout
+block content
+    h1= title
+    - let tennisid = toShow._id
+    - let Player_Name = toShow.Player_Name
+    - let Player_Age = toShow.Player_Age
+    - let No_Of_Matches_Played = toShow.No_Of_Matches_Played
+    div
+    div.row
+    div(class='tennisAttr mr-3') tennis ID is:
+    div #{tennisid}
+    div.row
+    div(class='tennisAttr mr-3') tennis Name is:
+    div #{Player_Name}
+    div.row
+    div(class='tennisAttr mr-3') tennis Age is:
+    div #{Player_Age}
+    div.row
+    div(class='tennisAttr mr-3') tennis Played is:
+    div #{No_Of_Matches_Played}
