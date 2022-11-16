@@ -9,4 +9,5 @@ var router = express.Router();
 // });
 router.get('/', tennis_controlers.tennis_view_all_Page ); 
 router.get('/detail', tennis_controlers.tennis_view_one_Page);
+router.get('/create', tennis_controlers.tennis_create_Page);
 module.exports = router;
