@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  h1= title
+
+    - let tennisid = toShow._id
+    - let tennisname = toShow.tennis_Name
+    - let tennisage = toShow.tennis_age
+    - let tennissalary = toShow.tennis_salary
+
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{tennisid}
+    - let actionid = "/resource/tennises/" + tennisid
+    form(id='tennisForm', action= actionid, method="PUT")
+      div.form-group
+        label.tennisAttr(for='Player_Name') tennis playername
+        input#tennisplayername(type='text' name='Player_Name', value= Player_Name )
+      div.form-group
+        label.tennisAttr(for='Player_Age') tennis playerage
+        input#tennisplayerage(type='text' name='Player_Age', value= Player_Age )
+      div.form-group
+        label.tennisAttr(for='No_Of_Matches_Played') tennis noofmatchesplayed
+        input#tennisnoofmatchesplayed(type='number' name='No_Of_Matches_Played', value= No_Of_Matches_Played )
+      input(type="submit")
+
+    script.
+      document.forms['tennisForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+          method: 'PUT',
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+          return resp.json(); // or resp.text() or whatever the server sends
+        }).then((body) => {
+          alert("Update succeded")
+          // TODO handle body
+        }).catch((error) => {
+          // TODO handle error
+          alert("Update failed " + error )
+        });
+      });
