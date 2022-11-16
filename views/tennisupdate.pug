@@ -2,11 +2,10 @@ extends layout
 
 block content
   h1= title
-
-    - let tennisid = toShow._id
-    - let tennisname = toShow.tennis_Name
-    - let tennisage = toShow.tennis_age
-    - let tennissalary = toShow.tennis_salary
+  - let tennisid = toShow._id
+  - let tennisname = toShow.tennis_Name
+  - let tennisage = toShow.tennis_age
+  - let tennissalary = toShow.tennis_salary
 
     div.row(class='mb-2')
       div.mr-1 ID is

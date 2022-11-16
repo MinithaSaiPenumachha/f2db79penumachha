@@ -11,4 +11,5 @@ router.get('/', tennis_controlers.tennis_view_all_Page );
 router.get('/detail', tennis_controlers.tennis_view_one_Page);
 router.get('/create', tennis_controlers.tennis_create_Page);
 router.get('/update', tennis_controlers.tennis_update_Page);
+router.get('/delete', tennis_controlers.tennis_delete_Page);
 module.exports = router;
