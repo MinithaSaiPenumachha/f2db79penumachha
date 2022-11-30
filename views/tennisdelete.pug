@@ -32,7 +32,7 @@ block content
     script.
         function cancel() {
             // Go back to the home page for the tennis collection
-            window.location.href='/resource/tennises'
+            window.location.href='/tennis'
         }
     script.
         function deleteOnid() {
@@ -44,7 +44,7 @@ block content
                 return resp.json(); // or resp.text() or whatever the server sends
             }).then((body) => {
                 alert("Delete succeded")
-                window.location.href='/resource/tennises'
+                window.location.href='/tennis'
                 // TODO handle body
             }).catch((error) => {
                 // TODO handle error

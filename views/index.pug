@@ -1,21 +1,32 @@
-extends layout
+//- extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+//- block content
+//- h1= title
+//- p Welcome to #{title}
 
-  p Minitha Sai Penumachha
+//- p Minitha Sai Penumachha
 
-  button(type="button",onclick="doBump()" class="btn btn-primary") Press Me
+//- button(type="button",onclick="doBump()" class="btn btn-primary") Press Me
 
-  div(id="bump") Bump the count
-  script.
-    var count=0;
-    var bump=1;
-    function doBump() {
-      count = count+bump;
-      bump++;
-      document.getElementById("bump").innerHTML=`Count ${count} with bump ${bump}`
-    }
-  a(href="/tennis") tennis
+//- div(id="bump") Bump the count
+//- script.
+//- var count=0;
+//- var bump=1;
+//- function doBump() {
+//- count = count+bump;
+//- bump++;
+//- document.getElementById("bump").innerHTML=`Count ${count} with bump ${bump}`
+//- }
+//- a(href="/tennis") tennis
     
+extends layout
+block content
+    if (!user)
+      a(href="/login") Login
+      br
+      a(href="/register") Register
+    if (user)
+      p You are currently logged in as #{user.username}
+      a(href="/tennis") Take me to tennis 
+      br
+      a(href="/logout") Logout
